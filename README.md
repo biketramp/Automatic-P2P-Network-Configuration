@@ -1,5 +1,5 @@
-This automatic network configuration tool is intended to automate network configuration and simplify updating
-network settings. Prior to installation read the user guide.
+This automatic network configuration tool is for use with Raspberry Pi based Pi Car-S robot cars, it is intended to automate network configuration and simplify updating network settings. It could be easily adapted for use with other variation of Debian or Linux.
+
 
 The autop2p tool consists of the following files:
 1.  autop2p.service
@@ -16,4 +16,8 @@ sudo bash install.sh
 
 This has been tested on Raspbian desktop Nov 18 + Apr 19 with Raspberry Pi 3B's.
 
-A wireless network adapter capable of an increasing its MTU to 1532 is required.
+A wireless network adapter capable of an increasing its MTU to 1532 is required with batman-adv or the code can be changed for 
+use with the built in wireless adapter at the cost of fragmentation.
+
+This is my first public commit to GitHub, please feel free to point out noob errors.
+Enjoy :)
