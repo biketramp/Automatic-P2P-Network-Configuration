@@ -1,0 +1,11 @@
+[Unit]
+Description=Auto P2P
+Before=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /home/pi/autop2p.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

@@ -1,8 +1,19 @@
-# Automatic-P2P-Network-Configuration
-Scripts and a service file for use with Sun Founder Pi Car S robots containing a RPi model 3B.
-Automatically configures compatible network interfaces and adds them to the batman-adv mesh.
-Uses avahi to provide unique link local addressing.
-Changes the hostname to the MAC address of the interface.
-Detects gateways to the internet and adds them to the batman-adv configuration.
-Sets up a VPN using Openvpn to an off site VPN server for remote monitoring and configuration.
-Has a GUI to change mesh settings.
+This automatic network configuration tool is intended to automate network configuration and simplify updating
+network settings. Prior to installation read the user guide.
+
+The autop2p tool consists of the following files:
+1.  autop2p.service
+2.  autop2p.py
+3.  ipcheck.py
+4.  edit_mesh_settings.py
+5.  install.sh
+
+All files are placed in the /home/pi/ directory initially, setting the install.sh script to be executable and running it with the following 2 commands will configure everything:
+
+sudo chmod +x install.sh
+
+sudo bash install.sh
+
+This has been tested on Raspbian desktop Nov 18 + Apr 19 with Raspberry Pi 3B's.
+
+A wireless network adapter capable of an increasing its MTU to 1532 is required.
