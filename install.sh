@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Update repo list + upgrade
-sudo apt update && apt upgrade
+sudo apt update && apt -y upgrade
 
 #Disable dhcpcd auto config on the wireless and bat interfaces
 sudo sed -i 1i"denyinterfaces wlan*\ndenyinterfaces bat*" /etc/dhcpcd.conf
@@ -12,8 +12,8 @@ echo >> /boot/ssh
 #Remove Avahi
 sudo apt purge -y avahi-daemon
 
-#Install Wireshark Filezilla and 2 packages required by batctl
-sudo apt install -y wireshark filezilla libnl-3-dev libnl-genl-3-dev 
+#Install Wireshark Filezilla and other packages required by batctl
+sudo apt install -y wireshark filezilla libnl-3-dev libnl-genl-3-dev build-essential python-dev python-smbus python-pip git xrdp 
 
 #Set permissions for Wireshark
 sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
@@ -26,6 +26,13 @@ git clone https://git.open-mesh.org/batctl.git
 cd batctl
 sudo make install
 cd /home/pi
+
+#Clone and install Adafruit BNO055 library
+git clone https://github.com/adafruit/Adafruit_Python_BNO055.git
+cd Adafruit_Python_BNO055
+sudo python setup.py install
+cd /home/pi
+sudo pip3 install Adafruit_BNO055
 
 #Add batman-adv to startup modules
 sudo chmod 666 /etc/modules
@@ -45,3 +52,12 @@ sudo systemctl daemon-reload
 git clone --recursive https://github.com/sunfounder/SunFounder_PiCar-S.git
 cd SunFounder_PiCar-S/
 sudo ./install_dependencies
+
+#Clone the AutoP2P files
+sudo git clone https://github.com/biketramp/Automatic-P2P-Network-Configuration
+cd Automatic-P2P-Network-Configuration
+sudo cp * /home/pi/
+cd /home/pi/
+sudo rm Automatic-P2P-Network-Configuration
+
+
