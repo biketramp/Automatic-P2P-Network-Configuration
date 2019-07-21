@@ -18,6 +18,3 @@ This has been tested on Raspbian desktop Nov 18 + Apr 19 with Raspberry Pi 3B's.
 
 A wireless network adapter capable of an increasing its MTU to 1532 is required with batman-adv or the code can be changed for 
 use with the built in wireless adapter at the cost of fragmentation.
-
-This is my first public commit to GitHub, please feel free to point out noob errors.
-Enjoy :)
